@@ -1,26 +1,26 @@
 ﻿using System;
 
-class Program // transformation des minutes en heures
+class Program 
 {
-    static (int, int) ConvertirMinutes(int nbMin) // renvoie un tuple heures
-// et minutes 
+    static (int heures, int minutes) ConvertirMinutes(int nbMin) // sous programme qui retourne un tuple
     {
+        // Convertit un nombre de minutes en heures et minutes
         int heures = nbMin / 60;
         int minutes = nbMin % 60;
-        return (heures, minutes);
+        return (heures, minutes); // retourne un tuple
     }
 
-    static void Main() // demande a l'utilisateur un nombre de minutes
+    static void Main() // programme principal
     {
-        Console.Write("Entrez un nombre de minutes : ");
-        if (int.TryParse(Console.ReadLine(), out int nbMin))
+        Console.Write("Entrez un nombre de minutes : "); // demande à l'utilisateur d'entrer un nombre
+        if (int.TryParse(Console.ReadLine(), out int nbMin)) // vérifie si l'entrée est un entier
         {
-            var resultat = ConvertirMinutes(nbMin);
-            Console.WriteLine($"{nbMin} minutes = {resultat.Item1} heures et {resultat.Item2} minutes");
+            var (heures, minutes) = ConvertirMinutes(nbMin); // décompose le tuple retourné
+            Console.WriteLine($"{nbMin} minutes = {heures} heures et {minutes} minutes"); // affiche le résultat
         }
         else
         {
-            Console.WriteLine("Entrée invalide. Veuillez entrer un entier valide.");
+            Console.WriteLine("Entrée invalide. Veuillez entrer un entier valide."); // affiche un message d'erreur
         }
-    }// renvoie un tuple heures et minutes
+    }
 }
